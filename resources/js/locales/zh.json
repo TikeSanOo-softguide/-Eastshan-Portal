@@ -1,0 +1,550 @@
+{
+    "nav": {
+        "home": "首页",
+        "dashboard": "控制台",
+        "login": "登录",
+        "register": "注册",
+        "logout": "退出",
+        "profile": "个人资料",
+        "openMenu": "打开菜单",
+        "closeMenu": "关闭菜单",
+        "tagline": "东山公共服务与公告的示例网站",
+        "search": "搜索",
+        "searchLabel": "在这个示例网站中搜索",
+        "searchSubmit": "搜索",
+        "searchResults": "“{{query}}”的示例结果。",
+        "samplePage": "这是示例页面，还没有正式内容。",
+        "primaryLabel": "主导航",
+        "menu": "菜单",
+        "institutions": "机构",
+        "about": "地区概况",
+        "history": "历史",
+        "socioEconomy": "社会经济",
+        "religion": "宗教",
+        "customs": "习俗",
+        "infrastructure": "基础设施",
+        "education": "教育",
+        "health": "医疗卫生",
+        "electricity": "电力",
+        "roadsBridges": "道路与桥梁",
+        "heritage": "文化遗产",
+        "newsLiterature": "新闻与文学",
+        "dailyNews": "每日新闻",
+        "knowledge": "知识",
+        "literary": "文学",
+        "newsArticles": "新闻文章",
+        "contact": "联系",
+        "leadership": "领导层",
+        "gallery": "图库"
+    },
+    "home": {
+        "eyebrow": "公众",
+        "title": "东山门户",
+        "lead": "东山的机构动态、公共服务和公告都集中在这里，不用再分头去各个页面查找。",
+        "stress": "这一行用来检查换行：关于港口时刻、社区会议和办事时间的长通知应当留在栏内，不要把页面撑出横向滚动。",
+        "hero": {
+            "eyebrow": "示例公共门户",
+            "title": "为东山提供清晰的公共信息",
+            "subtitle": "这是首页占位文案，用于展示机构、服务与公告入口，并非正式声明。",
+            "ctaPrimary": "浏览机构",
+            "ctaSecondary": "阅读最新新闻",
+            "scroll": "向下"
+        },
+        "featured": {
+            "eyebrow": "重点入口",
+            "title": "你可以在这里找到",
+            "lead": "六个示例入口。短循环视频仅为占位，上线前请换成已授权素材。",
+            "institutions": {
+                "title": "机构",
+                "body": "把办公室与示例地区机构集中在一处。"
+            },
+            "leadership": {
+                "title": "领导层",
+                "body": "仅供版式预览的虚构人物简介。"
+            },
+            "history": {
+                "title": "历史",
+                "body": "关于地区过往的占位页面。"
+            },
+            "infrastructure": {
+                "title": "基础设施",
+                "body": "教育、卫生、电力与道路的示例内容。"
+            },
+            "culture": {
+                "title": "文化",
+                "body": "标明为示例的遗产相关说明。"
+            },
+            "news": {
+                "title": "新闻",
+                "body": "日常公告与简短示例更新。"
+            }
+        },
+        "stats": {
+            "eyebrow": "一览",
+            "note": "数字来自示例种子数据，不是官方统计。",
+            "population": "人口",
+            "townships": "乡镇",
+            "schools": "学校",
+            "clinics": "诊所"
+        },
+        "news": {
+            "eyebrow": "动态",
+            "title": "最新新闻",
+            "lead": "数据库中的三条示例新闻。",
+            "viewAll": "全部新闻",
+            "empty": "还没有已发布的新闻。"
+        },
+        "articles": {
+            "eyebrow": "阅读",
+            "title": "最新文章",
+            "lead": "数据库中的三条示例文章。",
+            "viewAll": "全部文章",
+            "empty": "还没有已发布的文章。"
+        },
+        "leadership": {
+            "eyebrow": "人物",
+            "title": "领导层",
+            "lead": "虚构负责人轮播。照片与姓名均为占位。",
+            "prev": "上一组",
+            "next": "下一组",
+            "page": "第 {{current}} / {{total}} 页",
+            "viewAll": "查看领导层",
+            "empty": "暂无可展示的负责人。"
+        },
+        "styleGuide": {
+            "badge": "样式指南 · 仅开发环境",
+            "eyebrow": "设计系统",
+            "title": "色彩与组件",
+            "intro": "这里是公众网站的浅色和深色样品。金色只用于细下划线和键盘焦点。",
+            "english": "英文",
+            "burmese": "缅文",
+            "chinese": "中文",
+            "englishHeading": "Eastshan Portal",
+            "englishBody": "正文用 Inter，标题用 Playfair Display。",
+            "burmeseHeading": "အရှေ့ရှမ်း ပေါ်တယ်",
+            "burmeseBody": "Noto Sans Myanmar",
+            "chineseHeading": "东山门户",
+            "chineseBody": "Noto Sans SC",
+            "light": "浅色",
+            "dark": "深色",
+            "specimenEyebrow": "公众网站",
+            "specimenTitle": "东山样品",
+            "specimenBody": "排版从容，留白充足，标题下只有一条细金线。",
+            "primary": "主要",
+            "outline": "线框",
+            "ghost": "文字",
+            "disabled": "已禁用",
+            "idle": "还没有按下按钮。",
+            "pressedPrimary": "已按下主要按钮。",
+            "pressedOutline": "已按下线框按钮。",
+            "pressedGhost": "已按下文字按钮。",
+            "notice": "通知",
+            "archive": "档案",
+            "typeSamples": "字体样品",
+            "cardOneTitle": "港口简报",
+            "cardOneBody": "这张卡片留出阅读空隙，没有用金色铺满背景。",
+            "cardTwoTitle": "公众日程",
+            "cardTwoBody": "网格里的第二张卡片，表面和边框用的是同一套颜色。",
+            "palette": "色板",
+            "navy": "海军蓝",
+            "gold": "金色",
+            "slateAndWhite": "石板灰与白",
+            "themeTokens": "主题令牌",
+            "white": "白",
+            "swatch": "{{name}}"
+        }
+    },
+    "common": {
+        "appName": "东山门户",
+        "skipToContent": "跳到主要内容",
+        "language": {
+            "label": "语言",
+            "en": "English",
+            "my": "မြန်မာ",
+            "zh": "中文"
+        },
+        "save": "保存",
+        "saved": "已保存。",
+        "cancel": "取消",
+        "confirm": "确认",
+        "email": "电子邮箱",
+        "password": "密码",
+        "name": "姓名",
+        "rememberMe": "在这台设备上记住我",
+        "currentPassword": "当前密码",
+        "newPassword": "新密码",
+        "confirmPassword": "再次输入密码",
+        "loginTitle": "登录",
+        "registerTitle": "注册",
+        "forgotTitle": "忘记密码",
+        "forgotHelp": "忘记密码也没关系。留下邮箱，我们会发一封邮件，让你自己设置新密码。",
+        "forgotPassword": "忘记密码了？",
+        "emailResetLink": "发送重置链接",
+        "resetTitle": "重置密码",
+        "resetAction": "重置密码",
+        "confirmTitle": "确认密码",
+        "confirmHelp": "这里是安全区域。继续之前请再输入一次密码。",
+        "alreadyRegistered": "已经有账户了？",
+        "verifyTitle": "验证邮箱",
+        "verifyBody": "感谢注册。开始使用前，请点击我们刚发出的邮件里的链接，完成邮箱验证。如果没收到，可以再发一封。",
+        "resendVerificationEmail": "重发验证邮件",
+        "verifySent": "新的验证链接已发到你注册时填写的邮箱。",
+        "pagination": "分页",
+        "paginationStatus": "显示第 {{from}}–{{to}} 条，共 {{total}} 条",
+        "previous": "上一页",
+        "next": "下一页",
+        "firstPage": "第一页",
+        "notAvailable": "暂无",
+        "breadcrumb": "面包屑导航"
+    },
+    "institutions": {
+        "metaTitle": "机构",
+        "metaDescription": "浏览东山门户演示中的示例机构。",
+        "detailMetaTitle": "{{name}} · 机构",
+        "eyebrow": "名录",
+        "title": "机构",
+        "lead": "可按类型筛选或按名称搜索。所有条目均为示例占位内容。",
+        "searchLabel": "搜索",
+        "typeLabel": "类型",
+        "allTypes": "全部类型",
+        "apply": "应用",
+        "emptyTitle": "未找到机构",
+        "emptyBody": "请换个关键词，或清除类型筛选。",
+        "subDepartments": "下属部门",
+        "noDepartments": "该示例机构暂无下属部门。",
+        "leadership": "领导层",
+        "noLeaders": "该示例机构暂无负责人。",
+        "contact": "联系方式",
+        "address": "地址",
+        "phone": "电话",
+        "email": "电子邮箱",
+        "types": {
+            "special_region": "特区",
+            "department": "部门",
+            "office": "办公室"
+        }
+    },
+    "leadership": {
+        "metaTitle": "领导架构",
+        "metaDescription": "按机构分组的示例负责人卡片。人物与职务均为虚构。",
+        "eyebrow": "架构",
+        "title": "领导架构",
+        "lead": "用于版式预览的组织架构式卡片。照片与姓名均为占位。",
+        "emptyTitle": "暂无领导分组",
+        "emptyBody": "请先填充数据库，以预览示例架构。",
+        "emptyLeaders": "该机构暂无负责人。"
+    },
+    "about": {
+        "metaDescription": "东山门户的示例地区背景页面。",
+        "toc": "本页内容",
+        "inThisSection": "本栏目内容",
+        "related": "相关页面",
+        "emptyTitle": "本栏目暂无页面",
+        "emptyBody": "填充数据后，已发布的内容页面会显示在这里。"
+    },
+    "infrastructure": {
+        "metaTitle": "基础设施 · {{category}}",
+        "metaDescription": "示例基础设施清单，可按乡镇筛选并查看状态汇总。",
+        "eyebrow": "服务",
+        "title": "基础设施",
+        "lead": "按领域切换标签，再按乡镇筛选。数据均为演示数据。",
+        "tabsLabel": "基础设施类别",
+        "townshipLabel": "乡镇",
+        "allTownships": "全部乡镇",
+        "emptyTitle": "暂无基础设施项目",
+        "emptyBody": "没有符合该类别和乡镇筛选条件的示例项目。",
+        "categories": {
+            "education": "教育",
+            "health": "医疗卫生",
+            "electricity": "电力",
+            "road_bridge": "道路与桥梁"
+        },
+        "summary": {
+            "total": "总计",
+            "operational": "运行中",
+            "under_construction": "在建",
+            "planned": "规划中"
+        },
+        "status": {
+            "operational": "运行中",
+            "under_construction": "在建",
+            "planned": "规划中"
+        },
+        "columns": {
+            "name": "名称",
+            "township": "乡镇",
+            "status": "状态",
+            "year": "年份",
+            "stats": "统计"
+        },
+        "stats": {
+            "classrooms": "教室",
+            "teachers": "教师",
+            "beds": "床位",
+            "staff": "工作人员",
+            "households": "户数",
+            "length_km": "长度（公里）"
+        }
+    },
+    "contact": {
+        "metaTitle": "联系",
+        "metaDescription": "东山门户演示的联系信息和留言表单。",
+        "eyebrow": "留言",
+        "title": "联系",
+        "lead": "以下为示例地址和表单。留言只写入本演示的应用日志，不会送到真实机构。",
+        "name": "姓名",
+        "email": "电子邮箱",
+        "message": "留言",
+        "submit": "发送",
+        "sent": "已收到留言。此演示仅将其记入应用日志。"
+    },
+    "seo": {
+        "defaultDescription": "东山机构、服务与公告的示例公共门户。"
+    },
+    "errors": {
+        "home": "返回首页",
+        "notFound": {
+            "title": "找不到页面",
+            "body": "这个地址不在本站。请检查链接，或返回首页。"
+        },
+        "server": {
+            "title": "出了点问题",
+            "body": "页面暂时无法打开。请稍后再试。"
+        }
+    },
+    "admin": {
+        "dashboardTitle": "控制台",
+        "loggedIn": "你已登录。",
+        "profileTitle": "个人资料",
+        "profileHeading": "个人资料",
+        "profileDescription": "在这里修改姓名和电子邮箱。",
+        "passwordTitle": "修改密码",
+        "passwordDescription": "请使用足够长、不容易被猜到的密码。",
+        "deleteTitle": "删除账户",
+        "deleteDescription": "账户删除后，相关资料会一并清除，而且无法恢复。请先把需要留下的内容下载下来。",
+        "deleteConfirmTitle": "确定要删除账户吗？",
+        "deleteConfirmBody": "删除后无法恢复。请输入密码，确认你要永久删除这个账户。",
+        "deleteAction": "删除账户",
+        "unverified": "邮箱还没有验证。",
+        "resendVerification": "点这里重发验证邮件。",
+        "verificationSent": "新的验证链接已发到你的邮箱。",
+        "dashboardDescription": "管理门户内容并查看近期发布动态。",
+        "nav": {
+            "dashboard": "控制台",
+            "institutions": "机构",
+            "leaders": "领导",
+            "townships": "乡镇",
+            "contentPages": "内容页面",
+            "infrastructure": "基础设施",
+            "news": "新闻",
+            "articles": "文章"
+        },
+        "sidebar": {
+            "navigation": "管理导航",
+            "toggle": "收起或展开侧栏"
+        },
+        "topbar": {
+            "search": "搜索管理内容",
+            "userMenu": "打开用户菜单"
+        },
+        "theme": {
+            "label": "主题",
+            "light": "浅色",
+            "dark": "深色",
+            "system": "跟随系统"
+        },
+        "datatable": {
+            "search": "搜索…",
+            "create": "新建",
+            "edit": "编辑",
+            "actions": "操作",
+            "empty": "没有找到记录。",
+            "selectAll": "选择全部",
+            "selectRow": "选择此行",
+            "deleteSelected": "删除所选（{{count}}）",
+            "yes": "是",
+            "no": "否"
+        },
+        "confirm": {
+            "title": "删除所选记录？",
+            "body": "此操作无法撤销。",
+            "delete": "删除"
+        },
+        "flash": {
+            "created": "创建成功。",
+            "updated": "更新成功。",
+            "deleted": "删除成功。",
+            "bulkDeleted": "已删除所选记录。"
+        },
+        "stats": {
+            "institutions": "机构",
+            "leaders": "领导",
+            "news": "新闻",
+            "articles": "文章",
+            "publishedNews": "已发布新闻",
+            "publishedArticles": "已发布文章",
+            "publishedChart": "每月发布内容"
+        },
+        "quick": {
+            "title": "快捷操作",
+            "newInstitution": "新建机构",
+            "newNews": "新建新闻",
+            "newArticle": "新建文章",
+            "newPage": "新建内容页面",
+            "newLeader": "新建领导",
+            "newTownship": "新建乡镇",
+            "newInfrastructure": "新建基础设施"
+        },
+        "activity": {
+            "title": "近期动态",
+            "empty": "暂无近期动态。"
+        },
+        "form": {
+            "saving": "正在保存…",
+            "chooseImage": "选择图片",
+            "removeImage": "移除图片",
+            "publish": "发布状态",
+            "published": "已发布",
+            "draft": "草稿",
+            "active": "启用",
+            "none": "无",
+            "name": "名称",
+            "title": "标题",
+            "description": "描述",
+            "body": "正文",
+            "excerpt": "摘要",
+            "bio": "Biography",
+            "position": "职位",
+            "slug": "Slug",
+            "type": "类型",
+            "parent": "Parent institution",
+            "institution": "Institution",
+            "township": "Township",
+            "category": "分类",
+            "status": "状态",
+            "section": "Section",
+            "address": "地址",
+            "phone": "电话",
+            "email": "邮箱",
+            "logo": "Logo",
+            "photo": "Photo",
+            "cover": "Cover image",
+            "population": "Population",
+            "area_km2": "Area (km²)",
+            "lat": "Latitude",
+            "lng": "Longitude",
+            "year": "Year",
+            "stats": "Statistics (key:value, comma-separated)",
+            "sort_order": "Sort order",
+            "source_name": "Source name",
+            "source_url": "Source URL",
+            "published_at": "Publication date",
+            "updated_at": "Updated",
+            "is_active": "Active",
+            "is_published": "Published",
+            "author": "Author"
+        },
+        "crud": {
+            "institution": {
+                "index": "机构",
+                "create": "新建机构",
+                "edit": "编辑机构"
+            },
+            "leader": {
+                "index": "领导",
+                "create": "新建领导",
+                "edit": "编辑领导"
+            },
+            "township": {
+                "index": "乡镇",
+                "create": "新建乡镇",
+                "edit": "编辑乡镇"
+            },
+            "page": {
+                "index": "内容页面",
+                "create": "新建内容页面",
+                "edit": "编辑内容页面"
+            },
+            "infrastructure": {
+                "index": "基础设施",
+                "create": "新建基础设施",
+                "edit": "编辑基础设施"
+            },
+            "news": {
+                "index": "新闻",
+                "create": "新建新闻",
+                "edit": "编辑新闻"
+            },
+            "article": {
+                "index": "文章",
+                "create": "新建文章",
+                "edit": "编辑文章"
+            }
+        }
+    },
+    "footer": {
+        "aboutTitle": "关于本示例网站",
+        "aboutBody": "以下为占位说明，并不介绍真实机构、真实人物或真实事件。",
+        "quickLinks": "快速链接",
+        "contactTitle": "联系",
+        "address": "示例市民广场，东山（非真实地址）",
+        "phone": "+95 1 000 0000",
+        "email": "contact@example.com",
+        "copyright": "© {{year}} 东山门户。示例网站。"
+    },
+    "news": {
+        "metaTitle": "每日新闻",
+        "metaDescription": "带来源链接的示例新闻摘要。本站从不转载其他媒体的完整文章。",
+        "rssTitle": "东山门户订阅",
+        "eyebrow": "摘要",
+        "title": "每日新闻",
+        "lead": "仅提供附带来源链接的短摘要。以下均为示例占位内容，并非转载文章。",
+        "categoryLabel": "分类",
+        "allCategories": "全部分类",
+        "fromLabel": "自",
+        "toLabel": "至",
+        "apply": "应用",
+        "source": "来源",
+        "emptyTitle": "暂无新闻",
+        "emptyBody": "请尝试其他分类或日期范围。"
+    },
+    "articles": {
+        "metaTitle": "文章 · {{category}}",
+        "metaDescription": "东山门户演示中的原创示例文章。",
+        "eyebrow": "阅读",
+        "title": "文章",
+        "lead": "为本示例网站撰写的知识、文学与新闻类文章。",
+        "tabsLabel": "文章分类",
+        "emptyTitle": "暂无文章",
+        "emptyBody": "该分类下已发布的文章会显示在这里。",
+        "readingTime": "约 {{minutes}} 分钟阅读",
+        "byline": "作者：{{name}}",
+        "availableIn": "可用语言：",
+        "share": "分享",
+        "copyLink": "复制链接",
+        "copied": "已复制",
+        "shareX": "分享到 X",
+        "shareFacebook": "分享到 Facebook",
+        "related": "相关文章",
+        "categories": {
+            "knowledge": "知识",
+            "literary": "文学",
+            "news": "新闻文章"
+        }
+    },
+    "search": {
+        "metaTitle": "搜索",
+        "metaDescription": "在东山门户搜索示例新闻摘要与文章。",
+        "eyebrow": "查找",
+        "title": "搜索",
+        "lead": "对新闻摘要与文章的简单关键词搜索。已预留结构，便于日后切换到 Laravel Scout。",
+        "promptTitle": "请输入搜索词",
+        "promptBody": "可尝试示例标题或文章标题中的词语。",
+        "emptyTitle": "无结果",
+        "emptyBody": "没有匹配“{{query}}”的内容。",
+        "types": {
+            "news": "新闻摘要",
+            "article": "文章"
+        }
+    }
+}

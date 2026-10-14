@@ -1,0 +1,550 @@
+{
+    "nav": {
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "login": "Log in",
+        "register": "Register",
+        "logout": "Log out",
+        "profile": "Profile",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu",
+        "tagline": "Sample public site for Eastshan services and notices",
+        "search": "Search",
+        "searchLabel": "Search this sample site",
+        "searchSubmit": "Search",
+        "searchResults": "Sample results for “{{query}}”.",
+        "samplePage": "Sample page. This destination has no official content yet.",
+        "primaryLabel": "Primary",
+        "menu": "Menu",
+        "institutions": "Institutions",
+        "about": "About the Region",
+        "history": "History",
+        "socioEconomy": "Socio-economy",
+        "religion": "Religion",
+        "customs": "Customs",
+        "infrastructure": "Infrastructure",
+        "education": "Education",
+        "health": "Health",
+        "electricity": "Electricity",
+        "roadsBridges": "Roads & Bridges",
+        "heritage": "Cultural Heritage",
+        "newsLiterature": "News & Literature",
+        "dailyNews": "Daily News",
+        "knowledge": "Knowledge",
+        "literary": "Literary",
+        "newsArticles": "News Articles",
+        "contact": "Contact",
+        "leadership": "Leadership",
+        "gallery": "Gallery"
+    },
+    "home": {
+        "eyebrow": "Public",
+        "title": "Eastshan Portal",
+        "lead": "Institution news, public services, and notices for Eastshan, gathered in one place so you can find them without hunting through separate sites.",
+        "stress": "This line checks wrapping: ShanStatePublicNoticeAboutHarborSchedulesCommunityMeetingsAndServiceHoursShouldStayInsideTheColumn.",
+        "hero": {
+            "eyebrow": "Sample public portal",
+            "title": "Serving Eastshan with clear public information",
+            "subtitle": "Placeholder homepage copy for institutions, services, and notices. This text is sample content, not an official statement.",
+            "ctaPrimary": "Explore institutions",
+            "ctaSecondary": "Read the latest news",
+            "scroll": "Scroll"
+        },
+        "featured": {
+            "eyebrow": "Priorities",
+            "title": "What you can find here",
+            "lead": "Six sample entry points. The short looping clips are placeholders—replace them with licensed stock footage before launch.",
+            "institutions": {
+                "title": "Institutions",
+                "body": "Offices and sample regional bodies in one place."
+            },
+            "leadership": {
+                "title": "Leadership",
+                "body": "Fictional sample profiles for layout review only."
+            },
+            "history": {
+                "title": "History",
+                "body": "Placeholder pages about the region’s past."
+            },
+            "infrastructure": {
+                "title": "Infrastructure",
+                "body": "Education, health, power, and roads in sample form."
+            },
+            "culture": {
+                "title": "Culture",
+                "body": "Heritage notes marked as sample content."
+            },
+            "news": {
+                "title": "News",
+                "body": "Daily notices and brief sample updates."
+            }
+        },
+        "stats": {
+            "eyebrow": "At a glance",
+            "note": "Sample numbers drawn from seeded demo data. They are not official statistics.",
+            "population": "Population",
+            "townships": "Townships",
+            "schools": "Schools",
+            "clinics": "Clinics"
+        },
+        "news": {
+            "eyebrow": "Updates",
+            "title": "Latest news",
+            "lead": "Three recent sample items from the database.",
+            "viewAll": "All news",
+            "empty": "No published news items yet."
+        },
+        "articles": {
+            "eyebrow": "Reading",
+            "title": "Latest articles",
+            "lead": "Three recent sample articles from the database.",
+            "viewAll": "All articles",
+            "empty": "No published articles yet."
+        },
+        "leadership": {
+            "eyebrow": "People",
+            "title": "Leadership",
+            "lead": "Sample carousel of fictional leaders. Photos and names are placeholders.",
+            "prev": "Previous leaders",
+            "next": "Next leaders",
+            "page": "Page {{current}} of {{total}}",
+            "viewAll": "View leadership",
+            "empty": "No leaders to show yet."
+        },
+        "styleGuide": {
+            "badge": "Style guide · local only",
+            "eyebrow": "Design system",
+            "title": "Tokens and components",
+            "intro": "Light and dark specimens for the public site. Gold is limited to thin underlines and focus rings.",
+            "english": "English",
+            "burmese": "Burmese",
+            "chinese": "Chinese",
+            "englishHeading": "Eastshan Portal",
+            "englishBody": "Inter for text. Playfair Display for headings.",
+            "burmeseHeading": "အရှေ့ရှမ်း ပေါ်တယ်",
+            "burmeseBody": "Noto Sans Myanmar",
+            "chineseHeading": "东山门户",
+            "chineseBody": "Noto Sans SC",
+            "light": "Light",
+            "dark": "Dark",
+            "specimenEyebrow": "Public site",
+            "specimenTitle": "Eastshan specimen",
+            "specimenBody": "Calm type, wide margins, and a single gold line under the heading.",
+            "primary": "Primary",
+            "outline": "Outline",
+            "ghost": "Ghost",
+            "disabled": "Disabled",
+            "idle": "Nothing pressed yet.",
+            "pressedPrimary": "Primary pressed.",
+            "pressedOutline": "Outline pressed.",
+            "pressedGhost": "Ghost pressed.",
+            "notice": "Notice",
+            "archive": "Archive",
+            "typeSamples": "Type samples",
+            "cardOneTitle": "Harbor briefing",
+            "cardOneBody": "A featured note with room to breathe. No filled gold surfaces.",
+            "cardTwoTitle": "Civic calendar",
+            "cardTwoBody": "Second card in the grid, same surface and border tokens.",
+            "palette": "Palette",
+            "navy": "Navy",
+            "gold": "Gold",
+            "slateAndWhite": "Slate and white",
+            "themeTokens": "Theme tokens",
+            "white": "white",
+            "swatch": "{{name}}"
+        }
+    },
+    "common": {
+        "appName": "Eastshan Portal",
+        "skipToContent": "Skip to content",
+        "language": {
+            "label": "Language",
+            "en": "English",
+            "my": "မြန်မာ",
+            "zh": "中文"
+        },
+        "save": "Save",
+        "saved": "Saved.",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "email": "Email",
+        "password": "Password",
+        "name": "Name",
+        "rememberMe": "Remember me",
+        "currentPassword": "Current password",
+        "newPassword": "New password",
+        "confirmPassword": "Confirm password",
+        "loginTitle": "Log in",
+        "registerTitle": "Register",
+        "forgotTitle": "Forgot password",
+        "forgotHelp": "Forgot your password? Tell us your email address and we will send a link so you can choose a new one.",
+        "forgotPassword": "Forgot your password?",
+        "emailResetLink": "Email password reset link",
+        "resetTitle": "Reset password",
+        "resetAction": "Reset password",
+        "confirmTitle": "Confirm password",
+        "confirmHelp": "This is a secure area. Please confirm your password before continuing.",
+        "alreadyRegistered": "Already registered?",
+        "verifyTitle": "Email verification",
+        "verifyBody": "Thanks for signing up. Before you get started, please verify your email by clicking the link we just sent. If it has not arrived, we can send another.",
+        "resendVerificationEmail": "Resend verification email",
+        "verifySent": "A new verification link has been sent to the email address you used when you registered.",
+        "pagination": "Pagination",
+        "paginationStatus": "Showing {{from}}–{{to}} of {{total}}",
+        "previous": "Previous",
+        "next": "Next",
+        "firstPage": "First page",
+        "notAvailable": "Not available",
+        "breadcrumb": "Breadcrumb"
+    },
+    "institutions": {
+        "metaTitle": "Institutions",
+        "metaDescription": "Browse sample institutions for the Eastshan portal demo.",
+        "detailMetaTitle": "{{name}} · Institutions",
+        "eyebrow": "Directory",
+        "title": "Institutions",
+        "lead": "Filter by type or search by name. All entries are sample placeholders.",
+        "searchLabel": "Search",
+        "typeLabel": "Type",
+        "allTypes": "All types",
+        "apply": "Apply",
+        "emptyTitle": "No institutions found",
+        "emptyBody": "Try another search term or clear the type filter.",
+        "subDepartments": "Sub-departments",
+        "noDepartments": "No sub-departments listed for this sample office.",
+        "leadership": "Leadership",
+        "noLeaders": "No leaders listed for this sample office.",
+        "contact": "Contact",
+        "address": "Address",
+        "phone": "Phone",
+        "email": "Email",
+        "types": {
+            "special_region": "Special region",
+            "department": "Department",
+            "office": "Office"
+        }
+    },
+    "leadership": {
+        "metaTitle": "Leadership structure",
+        "metaDescription": "Sample leadership cards grouped by institution. People and titles are fictional.",
+        "eyebrow": "Structure",
+        "title": "Leadership structure",
+        "lead": "Org-chart style cards for layout review. Photos and names are placeholders.",
+        "emptyTitle": "No leadership groups yet",
+        "emptyBody": "Seed the database to preview the sample structure.",
+        "emptyLeaders": "No leaders listed for this institution."
+    },
+    "about": {
+        "metaDescription": "Sample regional background pages for the Eastshan portal.",
+        "toc": "On this page",
+        "inThisSection": "In this section",
+        "related": "Related pages",
+        "emptyTitle": "No pages in this section",
+        "emptyBody": "Published content pages will appear here after seeding."
+    },
+    "infrastructure": {
+        "metaTitle": "Infrastructure · {{category}}",
+        "metaDescription": "Sample infrastructure inventory with township filters and status summaries.",
+        "eyebrow": "Services",
+        "title": "Infrastructure",
+        "lead": "Switch tabs by sector, then filter by township. Figures are demo data.",
+        "tabsLabel": "Infrastructure categories",
+        "townshipLabel": "Township",
+        "allTownships": "All townships",
+        "emptyTitle": "No infrastructure items",
+        "emptyBody": "No sample items match this category and township filter.",
+        "categories": {
+            "education": "Education",
+            "health": "Health",
+            "electricity": "Electricity",
+            "road_bridge": "Roads & Bridges"
+        },
+        "summary": {
+            "total": "Total",
+            "operational": "Operational",
+            "under_construction": "Under construction",
+            "planned": "Planned"
+        },
+        "status": {
+            "operational": "Operational",
+            "under_construction": "Under construction",
+            "planned": "Planned"
+        },
+        "columns": {
+            "name": "Name",
+            "township": "Township",
+            "status": "Status",
+            "year": "Year",
+            "stats": "Stats"
+        },
+        "stats": {
+            "classrooms": "Classrooms",
+            "teachers": "Teachers",
+            "beds": "Beds",
+            "staff": "Staff",
+            "households": "Households",
+            "length_km": "Length (km)"
+        }
+    },
+    "contact": {
+        "metaTitle": "Contact",
+        "metaDescription": "Sample contact details and a message form for the Eastshan portal preview.",
+        "eyebrow": "Write",
+        "title": "Contact",
+        "lead": "Sample address and form. Messages are logged for this preview and are not delivered to a real office.",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "submit": "Send message",
+        "sent": "Message received. This preview only records it in the application log."
+    },
+    "seo": {
+        "defaultDescription": "Sample public portal for Eastshan institutions, services, and notices."
+    },
+    "errors": {
+        "home": "Back to home",
+        "notFound": {
+            "title": "Page not found",
+            "body": "That address is not on this site. Check the link or return home."
+        },
+        "server": {
+            "title": "Something went wrong",
+            "body": "The page could not be loaded. Please try again in a moment."
+        }
+    },
+    "admin": {
+        "dashboardTitle": "Dashboard",
+        "loggedIn": "You're logged in.",
+        "profileTitle": "Profile",
+        "profileHeading": "Profile information",
+        "profileDescription": "Update your name and email address.",
+        "passwordTitle": "Update password",
+        "passwordDescription": "Use a long, hard-to-guess password to keep your account secure.",
+        "deleteTitle": "Delete account",
+        "deleteDescription": "Deleting your account permanently removes its data. Download anything you want to keep before you continue.",
+        "deleteConfirmTitle": "Are you sure you want to delete your account?",
+        "deleteConfirmBody": "This cannot be undone. Enter your password to confirm that you want to delete the account for good.",
+        "deleteAction": "Delete account",
+        "unverified": "Your email address is unverified.",
+        "resendVerification": "Click here to resend the verification email.",
+        "verificationSent": "A new verification link has been sent to your email address.",
+        "dashboardDescription": "Manage portal content and review recent publishing activity.",
+        "nav": {
+            "dashboard": "Dashboard",
+            "institutions": "Institutions",
+            "leaders": "Leaders",
+            "townships": "Townships",
+            "contentPages": "Content pages",
+            "infrastructure": "Infrastructure",
+            "news": "News",
+            "articles": "Articles"
+        },
+        "sidebar": {
+            "navigation": "Admin navigation",
+            "toggle": "Collapse or expand sidebar"
+        },
+        "topbar": {
+            "search": "Search admin content",
+            "userMenu": "Open user menu"
+        },
+        "theme": {
+            "label": "Theme",
+            "light": "Light",
+            "dark": "Dark",
+            "system": "System"
+        },
+        "datatable": {
+            "search": "Search…",
+            "create": "Create",
+            "edit": "Edit",
+            "actions": "Actions",
+            "empty": "No records found.",
+            "selectAll": "Select all rows",
+            "selectRow": "Select row",
+            "deleteSelected": "Delete selected ({{count}})",
+            "yes": "Yes",
+            "no": "No"
+        },
+        "confirm": {
+            "title": "Delete selected records?",
+            "body": "This action cannot be undone.",
+            "delete": "Delete"
+        },
+        "flash": {
+            "created": "Created successfully.",
+            "updated": "Updated successfully.",
+            "deleted": "Deleted successfully.",
+            "bulkDeleted": "Selected records deleted."
+        },
+        "stats": {
+            "institutions": "Institutions",
+            "leaders": "Leaders",
+            "news": "News items",
+            "articles": "Articles",
+            "publishedNews": "Published news",
+            "publishedArticles": "Published articles",
+            "publishedChart": "Published content by month"
+        },
+        "quick": {
+            "title": "Quick actions",
+            "newInstitution": "New institution",
+            "newNews": "New news item",
+            "newArticle": "New article",
+            "newPage": "New content page",
+            "newLeader": "New leader",
+            "newTownship": "New township",
+            "newInfrastructure": "New infrastructure item"
+        },
+        "activity": {
+            "title": "Recent activity",
+            "empty": "No recent activity."
+        },
+        "form": {
+            "saving": "Saving…",
+            "chooseImage": "Choose an image",
+            "removeImage": "Remove image",
+            "publish": "Publication",
+            "published": "Published",
+            "draft": "Draft",
+            "active": "Active",
+            "none": "None",
+            "name": "Name",
+            "title": "Title",
+            "description": "Description",
+            "body": "Body",
+            "excerpt": "Excerpt",
+            "bio": "Biography",
+            "position": "Position",
+            "slug": "Slug",
+            "type": "Type",
+            "parent": "Parent institution",
+            "institution": "Institution",
+            "township": "Township",
+            "category": "Category",
+            "status": "Status",
+            "section": "Section",
+            "address": "Address",
+            "phone": "Phone",
+            "email": "Email",
+            "logo": "Logo",
+            "photo": "Photo",
+            "cover": "Cover image",
+            "population": "Population",
+            "area_km2": "Area (km²)",
+            "lat": "Latitude",
+            "lng": "Longitude",
+            "year": "Year",
+            "stats": "Statistics (key:value, comma-separated)",
+            "sort_order": "Sort order",
+            "source_name": "Source name",
+            "source_url": "Source URL",
+            "published_at": "Publication date",
+            "updated_at": "Updated",
+            "is_active": "Active",
+            "is_published": "Published",
+            "author": "Author"
+        },
+        "crud": {
+            "institution": {
+                "index": "Institutions",
+                "create": "Create institution",
+                "edit": "Edit institution"
+            },
+            "leader": {
+                "index": "Leaders",
+                "create": "Create leader",
+                "edit": "Edit leader"
+            },
+            "township": {
+                "index": "Townships",
+                "create": "Create township",
+                "edit": "Edit township"
+            },
+            "page": {
+                "index": "Content pages",
+                "create": "Create content page",
+                "edit": "Edit content page"
+            },
+            "infrastructure": {
+                "index": "Infrastructure",
+                "create": "Create infrastructure item",
+                "edit": "Edit infrastructure item"
+            },
+            "news": {
+                "index": "News",
+                "create": "Create news item",
+                "edit": "Edit news item"
+            },
+            "article": {
+                "index": "Articles",
+                "create": "Create article",
+                "edit": "Edit article"
+            }
+        }
+    },
+    "footer": {
+        "aboutTitle": "About this sample site",
+        "aboutBody": "Placeholder text for a public portal. It does not describe a real office, a real person, or a real event.",
+        "quickLinks": "Quick links",
+        "contactTitle": "Contact",
+        "address": "Sample Civic Square, Eastshan (placeholder address)",
+        "phone": "+95 1 000 0000",
+        "email": "contact@example.com",
+        "copyright": "© {{year}} Eastshan Portal. Sample site."
+    },
+    "news": {
+        "metaTitle": "Daily News",
+        "metaDescription": "Short sample news digests with source links. Full third-party articles are never republished here.",
+        "rssTitle": "Eastshan Portal feed",
+        "eyebrow": "Digest",
+        "title": "Daily News",
+        "lead": "Short summaries only, with a clear Source link. These are sample placeholders, not republished articles.",
+        "categoryLabel": "Category",
+        "allCategories": "All categories",
+        "fromLabel": "From",
+        "toLabel": "To",
+        "apply": "Apply",
+        "source": "Source",
+        "emptyTitle": "No news items",
+        "emptyBody": "Try another category or date range."
+    },
+    "articles": {
+        "metaTitle": "Articles · {{category}}",
+        "metaDescription": "Original sample articles for the Eastshan portal preview.",
+        "eyebrow": "Reading",
+        "title": "Articles",
+        "lead": "Knowledge, literary, and news-style pieces written for this sample site.",
+        "tabsLabel": "Article categories",
+        "emptyTitle": "No articles yet",
+        "emptyBody": "Published articles in this category will appear here.",
+        "readingTime": "{{minutes}} min read",
+        "byline": "By {{name}}",
+        "availableIn": "Available in:",
+        "share": "Share",
+        "copyLink": "Copy link",
+        "copied": "Copied",
+        "shareX": "Share on X",
+        "shareFacebook": "Share on Facebook",
+        "related": "Related articles",
+        "categories": {
+            "knowledge": "Knowledge",
+            "literary": "Literary",
+            "news": "News Articles"
+        }
+    },
+    "search": {
+        "metaTitle": "Search",
+        "metaDescription": "Search sample news digests and articles on the Eastshan portal.",
+        "eyebrow": "Find",
+        "title": "Search",
+        "lead": "Simple keyword search across news digests and articles. Prepared to switch to Laravel Scout later.",
+        "promptTitle": "Enter a search term",
+        "promptBody": "Try a word from a sample headline or article title.",
+        "emptyTitle": "No results",
+        "emptyBody": "Nothing matched “{{query}}”.",
+        "types": {
+            "news": "News digest",
+            "article": "Article"
+        }
+    }
+}
