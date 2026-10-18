@@ -37,6 +37,22 @@ export default function MobileNav({ id, open, onClose }) {
             return undefined;
         }
 
+        const desktop = window.matchMedia('(min-width: 1024px)');
+
+        if (desktop.matches) {
+            onClose();
+
+            return undefined;
+        }
+
+        const onViewport = () => {
+            if (desktop.matches) {
+                onClose();
+            }
+        };
+
+        desktop.addEventListener('change', onViewport);
+
         const shell = document.getElementById('public-shell');
         const panel = panelRef.current;
         const previouslyFocused = document.activeElement;
@@ -91,6 +107,7 @@ export default function MobileNav({ id, open, onClose }) {
         document.addEventListener('keydown', onKeyDown);
 
         return () => {
+            desktop.removeEventListener('change', onViewport);
             document.removeEventListener('keydown', onKeyDown);
             document.body.style.overflow = previousOverflow;
 
@@ -162,11 +179,11 @@ export default function MobileNav({ id, open, onClose }) {
                                     <Link
                                         href={localizedHref(locale, item.href)}
                                         className={cx(
-                                            'flex min-h-11 items-center border-b text-[18px] font-medium tracking-[0.08em]',
+                                            'flex min-h-11 items-center text-[13px] font-normal uppercase tracking-[0.15em]',
                                             'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
                                             current
-                                                ? 'border-accent'
-                                                : 'border-transparent',
+                                                ? 'text-navy-900'
+                                                : 'text-text/80',
                                         )}
                                         aria-current={
                                             current ? 'page' : undefined
@@ -176,7 +193,7 @@ export default function MobileNav({ id, open, onClose }) {
                                         {t(item.key)}
                                     </Link>
                                     {item.children ? (
-                                        <ul className="pb-2">
+                                        <ul className="mb-2 flex flex-wrap gap-1 pb-2 ps-1">
                                             {item.children.map((child) => {
                                                 const childCurrent =
                                                     isCurrentHref(
@@ -193,11 +210,11 @@ export default function MobileNav({ id, open, onClose }) {
                                                                 child.href,
                                                             )}
                                                             className={cx(
-                                                                'flex min-h-11 items-center ps-4 text-[18px] font-medium tracking-[0.08em]',
+                                                                'inline-flex items-center px-3 py-2 text-[12px] font-normal uppercase tracking-[0.15em]',
                                                                 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
                                                                 childCurrent
-                                                                    ? 'border-b border-black text-text'
-                                                                    : 'text-text',
+                                                                    ? 'bg-navy-900 text-white'
+                                                                    : 'text-text/80 hover:text-navy-900',
                                                             )}
                                                             aria-current={
                                                                 childCurrent

@@ -1,8 +1,11 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import LanguageSwitcher from '@/Components/public/LanguageSwitcher';
-import { Link } from '@inertiajs/react';
+import { localizedHref } from '@/lib/navigation';
+import { Link, usePage } from '@inertiajs/react';
 
 export default function GuestLayout({ children }) {
+    const locale = usePage().props.locale ?? 'my';
+
     return (
         <div className="flex min-h-screen flex-col bg-gray-100">
             <header className="bg-navy-900 text-white">
@@ -13,7 +16,7 @@ export default function GuestLayout({ children }) {
 
             <div className="flex flex-1 flex-col items-center px-4 pb-6 pt-6 sm:justify-center sm:pt-0">
                 <div>
-                    <Link href={route('home')}>
+                    <Link href={localizedHref(locale, '/')}>
                         <ApplicationLogo className="h-20 w-20 fill-current text-gray-500" />
                     </Link>
                 </div>

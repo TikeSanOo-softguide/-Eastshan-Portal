@@ -28,7 +28,7 @@ class AdminAccessTest extends TestCase
     {
         app('url')->defaults(['locale' => '']);
 
-        $this->get('/mongla/admin')->assertRedirect('/my/login');
+        $this->get('/mongla/admin')->assertRedirect('/login');
         $this->get('/my/admin')->assertRedirect('/mongla/admin');
     }
 
@@ -167,7 +167,7 @@ class AdminAccessTest extends TestCase
 
         $this->actingAs($user)
             ->get('/mongla/admin')
-            ->assertRedirect('/en/verify-email');
+            ->assertRedirect('/verify-email');
     }
 
     public function test_user_without_admin_permission_is_forbidden(): void

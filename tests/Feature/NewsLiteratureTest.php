@@ -95,7 +95,7 @@ class NewsLiteratureTest extends TestCase
 
     public function test_rss_feed_per_locale(): void
     {
-        $this->get('/my/feed.xml')
+        $this->get('/feed.xml')
             ->assertOk()
             ->assertHeader('Content-Type', 'application/rss+xml; charset=UTF-8')
             ->assertSee('<rss', false)

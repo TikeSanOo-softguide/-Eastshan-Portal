@@ -34,16 +34,22 @@ class PublicLocaleRoutesTest extends TestCase
             '/contact',
         ];
 
-        foreach (['en', 'my', 'zh'] as $locale) {
+        foreach (['my', 'en', 'zh'] as $locale) {
             foreach ($paths as $path) {
-                $this->get('/'.$locale.$path)->assertOk();
+                $url = $locale === 'my'
+                    ? ($path === '' ? '/' : $path)
+                    : '/'.$locale.$path;
+
+                $this->get($url)->assertOk();
             }
         }
+
+        $this->get('/my/news')->assertRedirect('/news');
     }
 
     public function test_unknown_path_renders_translated_not_found_page(): void
     {
-        $this->get('/my/not-a-real-page')
+        $this->get('/not-a-real-page')
             ->assertNotFound()
             ->assertInertia(fn (Assert $page) => $page
                 ->component('Errors/Http')
@@ -57,8 +63,8 @@ class PublicLocaleRoutesTest extends TestCase
             ->assertOk()
             ->assertHeader('Content-Type', 'application/xml; charset=UTF-8')
             ->assertSee('/en/news', false)
-            ->assertSee('/my/news', false)
             ->assertSee('/zh/news', false)
+            ->assertDontSee('/my/news', false)
             ->assertSee('hreflang="zh-Hans"', false);
     }
 }

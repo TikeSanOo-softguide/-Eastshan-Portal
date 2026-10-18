@@ -4,11 +4,13 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { localizedHref } from '@/lib/navigation';
+import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 
 export default function Login({ status, canResetPassword }) {
     const { t } = useTranslation();
+    const locale = usePage().props.locale ?? 'my';
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -18,7 +20,7 @@ export default function Login({ status, canResetPassword }) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('login'), {
+        post(localizedHref(locale, '/login'), {
             onFinish: () => reset('password'),
         });
     };
@@ -85,7 +87,7 @@ export default function Login({ status, canResetPassword }) {
                 <div className="mt-4 flex items-center justify-end">
                     {canResetPassword && (
                         <Link
-                            href={route('password.request')}
+                            href={localizedHref(locale, '/forgot-password')}
                             className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                             {t('common.forgotPassword')}

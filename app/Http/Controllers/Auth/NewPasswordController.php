@@ -59,9 +59,9 @@ class NewPasswordController extends Controller
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
         if ($status == Password::PASSWORD_RESET) {
-            return redirect()->route('login', [
-                'locale' => $request->route('locale') ?? config('locales.default', 'my'),
-            ])->with('status', __($status));
+            return redirect()
+                ->to(\App\Support\LocaleUrl::path('/login', $request->route('locale')))
+                ->with('status', __($status));
         }
 
         throw ValidationException::withMessages([

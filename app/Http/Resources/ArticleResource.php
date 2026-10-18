@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Support\LocaleUrl;
 use App\Support\ReadingTime;
 use App\Support\RichText;
 use App\Support\TranslationAvailability;
@@ -36,7 +37,7 @@ class ArticleResource extends JsonResource
             'missing_translation' => ! in_array($locale, $available, true),
             'supported_locales' => $supported,
             'href' => '/articles/'.$this->category->value.'/'.$this->slug,
-            'share_url' => url('/'.$locale.'/articles/'.$this->category->value.'/'.$this->slug),
+            'share_url' => LocaleUrl::url('/articles/'.$this->category->value.'/'.$this->slug, $locale),
             'author' => $this->whenLoaded('author', fn () => $this->author ? [
                 'id' => $this->author->id,
                 'name' => $this->author->name,

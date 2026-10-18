@@ -9,14 +9,15 @@ import { useTranslation } from 'react-i18next';
 
 function itemClass(active, inverse) {
     return cx(
-        'inline-flex min-h-11 shrink-0 items-center gap-1 whitespace-nowrap border-b px-3 text-[18px] font-medium tracking-[0.08em]',
+        'inline-flex min-h-10 shrink-0 items-center whitespace-nowrap rounded-[8px] px-4 py-2.5 text-[13px] font-normal uppercase tracking-[0.15em] transition-colors duration-200',
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
-        inverse ? 'text-white' : 'text-text',
-        active
-            ? 'border-accent'
-            : inverse
-              ? 'border-transparent hover:border-white/80'
-              : 'border-transparent hover:border-accent',
+        inverse
+            ? active
+                ? 'bg-white/15 text-white'
+                : 'text-white hover:bg-white/10'
+            : active
+              ? 'bg-navy-900/10 text-navy-900'
+              : 'text-text/80 hover:text-navy-900',
     );
 }
 
@@ -34,7 +35,7 @@ export default function DesktopNav({ className = '', tone = 'default' }) {
                 className,
             )}
         >
-            <ul className="flex w-full items-center justify-center gap-1 overflow-x-auto">
+            <ul className="flex w-full flex-wrap items-center justify-center gap-x-1 gap-y-0">
                 {navigation.map((item) => {
                     const current = branchIsCurrent(page.url, locale, item);
 

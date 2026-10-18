@@ -3,11 +3,11 @@
 @foreach ($paths as $path)
     @foreach ($locales as $locale)
         <url>
-            <loc>{{ url('/'.$locale.$path) }}</loc>
+            <loc>{{ \App\Support\LocaleUrl::url($path === '' ? '/' : $path, $locale) }}</loc>
             @foreach ($locales as $alternate)
-                <xhtml:link rel="alternate" hreflang="{{ $alternate === 'zh' ? 'zh-Hans' : $alternate }}" href="{{ url('/'.$alternate.$path) }}" />
+                <xhtml:link rel="alternate" hreflang="{{ $alternate === 'zh' ? 'zh-Hans' : $alternate }}" href="{{ \App\Support\LocaleUrl::url($path === '' ? '/' : $path, $alternate) }}" />
             @endforeach
-            <xhtml:link rel="alternate" hreflang="x-default" href="{{ url('/my'.$path) }}" />
+            <xhtml:link rel="alternate" hreflang="x-default" href="{{ \App\Support\LocaleUrl::url($path === '' ? '/' : $path, config('locales.default', 'my')) }}" />
         </url>
     @endforeach
 @endforeach

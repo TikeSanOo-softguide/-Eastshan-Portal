@@ -10,7 +10,7 @@ class LocaleSeparationTest extends TestCase
     {
         $this->get('/zh');
 
-        $this->get('/mongla/admin')->assertRedirect('/my/login');
+        $this->get('/mongla/admin')->assertRedirect('/login');
 
         $this->get('/')->assertRedirect('/zh');
         $this->get('/admin')->assertRedirect('/mongla/admin');

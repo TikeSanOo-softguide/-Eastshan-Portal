@@ -59,8 +59,9 @@ class InstitutionController extends Controller
         ]);
     }
 
-    public function show(string $locale, string $slug): Response
+    public function show(Request $request): Response
     {
+        $slug = $request->route('slug');
         $institution = Institution::query()
             ->active()
             ->where('slug', $slug)

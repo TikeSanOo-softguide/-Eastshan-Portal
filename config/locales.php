@@ -7,6 +7,12 @@ return [
     'default' => 'my',
 
     /*
+    | The default locale is omitted from public URLs.
+    | /news is Myanmar. /en/news and /zh/news keep their prefix.
+    | /my/news redirects to /news.
+    */
+
+    /*
     | Content translations fall through this list after the active locale.
     | Requested locale -> my -> en.
     */

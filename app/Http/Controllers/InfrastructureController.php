@@ -16,9 +16,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class InfrastructureController extends Controller
 {
-    public function __invoke(Request $request, string $locale, ?string $category = null): Response
+    public function __invoke(Request $request): Response
     {
-        $categoryKey = $category ?? $request->string('category')->toString();
+        $categoryKey = (string) ($request->route('category') ?: $request->string('category')->toString());
         $resolved = $this->resolveCategory($categoryKey) ?? InfrastructureCategory::Education;
 
         if ($categoryKey !== '' && ! $this->resolveCategory($categoryKey)) {

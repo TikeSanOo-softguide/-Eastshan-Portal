@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use App\Support\LocaleUrl;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
@@ -23,8 +24,7 @@ class ContactController extends Controller
             'email' => $request->string('email')->toString(),
         ]);
 
-        return redirect()
-            ->route('contact.create')
+        return redirect(LocaleUrl::path('/contact'))
             ->with('success', 'contact.sent');
     }
 }

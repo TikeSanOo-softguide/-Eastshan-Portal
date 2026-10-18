@@ -3,11 +3,13 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, useForm } from '@inertiajs/react';
+import { localizedHref } from '@/lib/navigation';
+import { Head, useForm, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 
 export default function ConfirmPassword() {
     const { t } = useTranslation();
+    const locale = usePage().props.locale ?? 'my';
     const { data, setData, post, processing, errors, reset } = useForm({
         password: '',
     });
@@ -15,7 +17,7 @@ export default function ConfirmPassword() {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('password.confirm'), {
+        post(localizedHref(locale, '/confirm-password'), {
             onFinish: () => reset('password'),
         });
     };

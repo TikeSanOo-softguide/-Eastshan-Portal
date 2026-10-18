@@ -21,22 +21,22 @@ export default function SubmenuTabs() {
         <nav
             data-testid="submenu-tabs"
             aria-label={t(section.key)}
-            className="border-t border-black/10 bg-white"
+            className="bg-white"
         >
-            <ul className="mx-auto flex w-full max-w-content gap-1 overflow-x-auto px-4 sm:px-6">
+            <ul className="mx-auto flex w-full max-w-content flex-wrap items-center justify-center gap-1 px-4 py-3 sm:px-6">
                 {section.children.map((child) => {
                     const current = isCurrentHref(page.url, locale, child.href);
 
                     return (
-                        <li key={child.key} className="shrink-0">
+                        <li key={child.key}>
                             <Link
                                 href={localizedHref(locale, child.href)}
                                 className={cx(
-                                    'inline-flex min-h-11 items-center whitespace-nowrap border-b-2 px-4 text-[18px] font-medium tracking-[0.08em] text-text transition-colors duration-200',
-                                    'hover:border-black/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+                                    'inline-flex items-center whitespace-nowrap rounded-[8px] px-3 py-2.5 text-[13px] font-normal uppercase tracking-[0.15em] transition-colors duration-200',
+                                    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
                                     current
-                                        ? 'border-black'
-                                        : 'border-transparent',
+                                        ? 'bg-navy-900 text-white'
+                                        : 'bg-transparent text-text/80 hover:text-navy-900',
                                 )}
                                 aria-current={current ? 'page' : undefined}
                             >

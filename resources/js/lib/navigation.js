@@ -65,7 +65,14 @@ export const searchHref = '/search';
 export const adminPrefix = '/mongla';
 
 export function localizedHref(locale, href) {
-    return `/${locale}${href}`;
+    const path = href.startsWith('/') ? href : `/${href}`;
+    const defaultLocale = 'my';
+
+    if (!locale || locale === defaultLocale) {
+        return path;
+    }
+
+    return path === '/' ? `/${locale}` : `/${locale}${path}`;
 }
 
 export function adminHref(href) {

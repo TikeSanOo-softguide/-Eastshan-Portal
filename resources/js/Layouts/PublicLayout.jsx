@@ -4,7 +4,9 @@ import LanguageSwitcher from '@/Components/public/LanguageSwitcher';
 import MobileNav from '@/Components/public/MobileNav';
 import SearchControl from '@/Components/public/SearchControl';
 import SiteFooter from '@/Components/public/SiteFooter';
+import TopMarquee from '@/Components/public/TopMarquee';
 import { cx } from '@/lib/cx';
+import { localizedHref } from '@/lib/navigation';
 import { usePrefersReducedMotion } from '@/lib/usePrefersReducedMotion';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { MotionConfig } from 'framer-motion';
@@ -21,6 +23,7 @@ function SiteHeader({
     drawerOpen,
     drawerId,
     setDrawerOpen,
+    locale,
     t,
 }) {
     return (
@@ -32,10 +35,11 @@ function SiteHeader({
             className={cx(
                 'sticky top-0 z-40 overflow-anchor-none transition-colors duration-300',
                 immersive
-                    ? 'bg-gradient-to-b from-navy-950/55 to-navy-950/0 text-white'
+                    ? 'bg-gradient-to-b from-navy-950/55 to-navy-950/0 text-white hover:bg-primary hover:bg-none'
                     : 'border-b border-border bg-surface/95 text-text shadow-sm backdrop-blur-md',
             )}
         >
+            <TopMarquee />
             <div
                 className={cx(
                     'relative mx-auto flex w-full max-w-content items-center gap-3 px-4 sm:px-6',
@@ -45,7 +49,7 @@ function SiteHeader({
                 <button
                     type="button"
                     className={cx(
-                        'inline-flex min-h-11 items-center gap-2 rounded-md px-1 text-xs font-medium uppercase tracking-[0.16em]',
+                        'inline-flex min-h-11 items-center gap-2 rounded-md px-1 text-xs font-medium uppercase tracking-[0.16em] lg:hidden',
                         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
                         immersive ? 'hover:bg-white/10' : 'hover:bg-text/5',
                     )}
@@ -58,7 +62,7 @@ function SiteHeader({
                     <span className="hidden sm:inline">{t('nav.openMenu')}</span>
                 </button>
                 <Link
-                    href={route('home')}
+                    href={localizedHref(locale, '/')}
                     className={cx(
                         'absolute left-1/2 inline-flex min-h-11 -translate-x-1/2 items-center',
                         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
@@ -72,20 +76,19 @@ function SiteHeader({
                         className="h-14 w-auto sm:h-16"
                     />
                 </Link>
-                <div className="ms-auto flex items-center gap-1">
+                <div className="ms-auto flex items-center gap-2">
+                    <SearchControl tone={immersive ? 'inverse' : 'default'} />
                     <LanguageSwitcher
                         tone={immersive ? 'inverse' : 'default'}
                     />
-                    <SearchControl tone={immersive ? 'inverse' : 'default'} />
                 </div>
             </div>
             <div
                 className={cx(
-                    'hidden overflow-hidden border-t transition-[max-height,opacity,border-color] duration-300 lg:block',
-                    immersive ? 'border-white/25' : 'border-border',
+                    'hidden overflow-hidden transition-[max-height,opacity] duration-300 lg:block',
                     showPrimary
-                        ? 'max-h-20 opacity-100'
-                        : 'pointer-events-none max-h-0 border-transparent opacity-0',
+                        ? 'max-h-40 opacity-100'
+                        : 'pointer-events-none max-h-0 opacity-0',
                 )}
                 inert={showPrimary ? undefined : true}
             >
@@ -94,7 +97,7 @@ function SiteHeader({
                     tone={immersive ? 'inverse' : 'default'}
                 />
             </div>
-            <SubmenuTabs />
+            {!immersive ? <SubmenuTabs /> : null}
         </header>
     );
 }
@@ -116,7 +119,7 @@ export default function PublicLayout({ children }) {
     const [condensed, setCondensed] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
     const closeDrawer = useCallback(() => setDrawerOpen(false), []);
-    const isHome = /^\/(en|my|zh)\/?$/.test(url.split('?')[0]);
+    const isHome = /^\/(|en|zh|my)\/?$/.test(url.split('?')[0]);
     const [immersive, setImmersive] = useState(isHome);
     const showPrimary = !condensed || direction === 'up' || drawerOpen;
 
@@ -149,10 +152,15 @@ export default function PublicLayout({ children }) {
 
             const hero = document.querySelector('[data-immersive-hero]');
             const header = headerRef.current;
+            const cover = document.querySelector('[data-testid=home-about-shan]');
             const nextImmersive = Boolean(
                 hero &&
                     header &&
-                    hero.getBoundingClientRect().bottom > header.offsetHeight + 8,
+                    (cover
+                        ? cover.getBoundingClientRect().top >
+                          header.offsetHeight + 8
+                        : hero.getBoundingClientRect().bottom >
+                          header.offsetHeight + 8),
             );
             setImmersive((current) =>
                 current === nextImmersive ? current : nextImmersive,
@@ -287,6 +295,7 @@ export default function PublicLayout({ children }) {
                         drawerOpen={drawerOpen}
                         drawerId={drawerId}
                         setDrawerOpen={setDrawerOpen}
+                        locale={locale}
                         t={t}
                     />
 

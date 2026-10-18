@@ -2,14 +2,20 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 
 class LocaleTest extends TestCase
 {
-    public function test_root_redirects_to_the_default_locale(): void
+    use RefreshDatabase;
+    public function test_root_renders_the_default_locale_without_a_prefix(): void
     {
-        $this->get('/')->assertRedirect('/my');
+        $this->get('/')
+            ->assertOk()
+            ->assertInertia(fn (Assert $page) => $page
+                ->component('Public/Home')
+                ->where('locale', 'my'));
     }
 
     public function test_root_prefers_the_session_locale_over_the_cookie(): void
@@ -31,7 +37,10 @@ class LocaleTest extends TestCase
     {
         $this->withCookie('locale', 'fr')
             ->get('/')
-            ->assertRedirect('/my');
+            ->assertOk()
+            ->assertInertia(fn (Assert $page) => $page
+                ->component('Public/Home')
+                ->where('locale', 'my'));
     }
 
     public function test_prefixed_home_shares_the_locale_and_stores_it(): void

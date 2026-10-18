@@ -3,6 +3,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Transition } from '@headlessui/react';
+import { localizedHref } from '@/lib/navigation';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +12,9 @@ export default function UpdateProfileInformation({
     status,
     className = '',
 }) {
-    const user = usePage().props.auth.user;
+    const page = usePage();
+    const user = page.props.auth.user;
+    const locale = page.props.locale ?? 'my';
     const { t } = useTranslation();
 
     const { data, setData, patch, errors, processing, recentlySuccessful } =
@@ -23,7 +26,7 @@ export default function UpdateProfileInformation({
     const submit = (e) => {
         e.preventDefault();
 
-        patch(route('profile.update'));
+        patch(localizedHref(locale, '/profile'));
     };
 
     return (
@@ -76,7 +79,7 @@ export default function UpdateProfileInformation({
                         <p className="mt-2 text-sm text-gray-800">
                             {t('admin.unverified')}{' '}
                             <Link
-                                href={route('verification.send')}
+                                href={localizedHref(locale, '/email/verification-notification')}
                                 method="post"
                                 as="button"
                                 className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

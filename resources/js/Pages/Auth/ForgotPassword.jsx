@@ -2,11 +2,13 @@ import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, useForm } from '@inertiajs/react';
+import { localizedHref } from '@/lib/navigation';
+import { Head, useForm, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 
 export default function ForgotPassword({ status }) {
     const { t } = useTranslation();
+    const locale = usePage().props.locale ?? 'my';
     const { data, setData, post, processing, errors } = useForm({
         email: '',
     });
@@ -14,7 +16,7 @@ export default function ForgotPassword({ status }) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('password.email'));
+        post(localizedHref(locale, '/forgot-password'));
     };
 
     return (

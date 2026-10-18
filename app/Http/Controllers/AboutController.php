@@ -13,9 +13,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AboutController extends Controller
 {
-    public function show(Request $request, string $locale, ?string $section = null): Response
+    public function show(Request $request): Response
     {
-        $sectionKey = $section ?? $request->route('section');
+        $sectionKey = $request->route('section');
         $contentSection = $this->resolveSection($sectionKey);
 
         if (! $contentSection) {

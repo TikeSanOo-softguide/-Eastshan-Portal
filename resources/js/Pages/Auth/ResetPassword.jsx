@@ -3,11 +3,13 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, useForm } from '@inertiajs/react';
+import { localizedHref } from '@/lib/navigation';
+import { Head, useForm, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 
 export default function ResetPassword({ token, email }) {
     const { t } = useTranslation();
+    const locale = usePage().props.locale ?? 'my';
     const { data, setData, post, processing, errors, reset } = useForm({
         token: token,
         email: email,
@@ -18,7 +20,7 @@ export default function ResetPassword({ token, email }) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('password.store'), {
+        post(localizedHref(locale, '/reset-password'), {
             onFinish: () => reset('password', 'password_confirmation'),
         });
     };

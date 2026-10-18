@@ -1,4 +1,5 @@
 import PublicLayout from '@/Layouts/PublicLayout';
+import { localizedHref } from '@/lib/navigation';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 
@@ -21,7 +22,7 @@ export default function HttpError({ status = 404 }) {
                     {t(`errors.${key}.body`)}
                 </p>
                 <Link
-                    href={`/${locale}`}
+                    href={localizedHref(locale, '/')}
                     className="mt-8 inline-flex min-h-11 items-center bg-primary px-5 text-sm font-medium text-on-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                 >
                     {t('errors.home')}

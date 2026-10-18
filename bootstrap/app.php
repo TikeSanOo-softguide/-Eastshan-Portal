@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\SetLocale;
+use App\Support\LocaleUrl;
 use Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -37,7 +38,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 $locale = config('locales.default', 'my');
             }
 
-            return route('login', ['locale' => $locale]);
+            return LocaleUrl::path('/login', $locale);
         });
     })
     ->withExceptions(function (Exceptions $exceptions) {
@@ -53,10 +54,17 @@ return Application::configure(basePath: dirname(__DIR__))
                 return $response;
             }
 
+            $supported = config('locales.supported', ['en', 'my', 'zh']);
             $segment = $request->segment(1);
-            $locale = in_array($segment, config('locales.supported', ['en', 'my', 'zh']), true)
+            $saved = $request->hasSession()
+                ? $request->session()->get('locale')
+                : null;
+            $saved ??= $request->cookie(config('locales.cookie'));
+            $locale = in_array($segment, ['en', 'zh', 'my'], true)
                 ? $segment
-                : config('locales.default', 'my');
+                : (is_string($saved) && in_array($saved, $supported, true)
+                    ? $saved
+                    : config('locales.default', 'my'));
             app()->setLocale($locale);
 
             return Inertia::render('Errors/Http', [

@@ -3,12 +3,14 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Transition } from '@headlessui/react';
-import { useForm } from '@inertiajs/react';
+import { localizedHref } from '@/lib/navigation';
+import { useForm, usePage } from '@inertiajs/react';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function UpdatePasswordForm({ className = '' }) {
     const { t } = useTranslation();
+    const locale = usePage().props.locale ?? 'my';
     const passwordInput = useRef();
     const currentPasswordInput = useRef();
 
@@ -29,7 +31,7 @@ export default function UpdatePasswordForm({ className = '' }) {
     const updatePassword = (e) => {
         e.preventDefault();
 
-        put(route('password.update'), {
+        put(localizedHref(locale, '/password'), {
             preserveScroll: true,
             onSuccess: () => reset(),
             onError: (errors) => {

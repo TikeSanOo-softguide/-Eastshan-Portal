@@ -11,7 +11,7 @@ class HomePageTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_home_shares_stats_news_articles_and_leaders(): void
+    public function test_home_shares_stats_and_news(): void
     {
         $this->seed(DatabaseSeeder::class);
 
@@ -25,9 +25,7 @@ class HomePageTest extends TestCase
                     ->has('schools')
                     ->has('clinics')
                     ->etc())
-                ->has('news', 3)
-                ->has('articles', 3)
-                ->has('leaders', 12)
+                ->has('news', 5)
                 ->has('news.0', fn (Assert $item) => $item
                     ->has('id')
                     ->has('title')
@@ -37,17 +35,7 @@ class HomePageTest extends TestCase
                     ->has('href')
                     ->missing('body')
                     ->etc())
-                ->has('articles.0', fn (Assert $item) => $item
-                    ->has('id')
-                    ->has('title')
-                    ->has('href')
-                    ->has('reading_time')
-                    ->etc())
-                ->has('leaders.0', fn (Assert $item) => $item
-                    ->has('id')
-                    ->has('name')
-                    ->has('position')
-                    ->has('photo')
-                    ->etc()));
+                ->missing('articles')
+                ->missing('leaders'));
     }
 }

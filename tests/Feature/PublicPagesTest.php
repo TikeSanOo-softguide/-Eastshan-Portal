@@ -17,7 +17,7 @@ class PublicPagesTest extends TestCase
             'name' => 'Sample Sender',
             'email' => 'sender@example.com',
             'message' => 'Sample note for the preview form.',
-        ])->assertRedirect(route('contact.create', ['locale' => 'en']));
+        ])->assertRedirect('/en/contact');
     }
 
     public function test_unknown_public_path_is_not_found(): void

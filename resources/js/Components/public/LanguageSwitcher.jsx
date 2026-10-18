@@ -1,116 +1,98 @@
-import { router, usePage } from '@inertiajs/react';
-import { useEffect, useId, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { cx } from '@/lib/cx';
+import { router, usePage } from '@inertiajs/react';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const labelKey = {
-    en: 'common.language.en',
-    my: 'common.language.my',
-    zh: 'common.language.zh',
+/** Display order; Myanmar is default and first in the cycle. */
+const LOCALE_ORDER = ['my', 'en', 'zh'];
+
+const META = {
+    my: {
+        labelKey: 'common.language.my',
+        short: 'MY',
+    },
+    en: {
+        labelKey: 'common.language.en',
+        short: 'EN',
+    },
+    zh: {
+        labelKey: 'common.language.zh',
+        short: '中文',
+    },
 };
+
+function currentBarePath() {
+    const url = new URL(window.location.href);
+    const bare = url.pathname.replace(/^\/(en|my|zh)(?=\/|$)/, '') || '/';
+    const path = bare.startsWith('/') ? bare : `/${bare}`;
+
+    return `${path}${url.search}`;
+}
+
+function nextLocale(current, locales) {
+    const order = LOCALE_ORDER.filter((code) => locales.includes(code));
+    const list = order.length > 0 ? order : locales;
+    const index = list.indexOf(current);
+    const from = index >= 0 ? index : 0;
+
+    return list[(from + 1) % list.length];
+}
 
 export default function LanguageSwitcher({ tone = 'default', mode = 'public' }) {
     const { t } = useTranslation();
-    const { locale, locales = [] } = usePage().props;
-    const [open, setOpen] = useState(false);
-    const rootRef = useRef(null);
-    const listId = useId();
+    const { locale, locales = LOCALE_ORDER } = usePage().props;
+    const [pending, setPending] = useState(false);
 
-    useEffect(() => {
-        if (!open) {
-            return undefined;
+    const current = META[locale] ?? META.my;
+    const upcoming = nextLocale(locale, locales);
+    const upcomingMeta = META[upcoming] ?? META.en;
+    const onNavy = tone === 'inverse';
+
+    const cycle = () => {
+        if (pending || !upcoming || upcoming === locale) {
+            return;
         }
 
-        const onPointerDown = (event) => {
-            if (!rootRef.current?.contains(event.target)) {
-                setOpen(false);
-            }
-        };
+        setPending(true);
 
-        const onKeyDown = (event) => {
-            if (event.key === 'Escape') {
-                setOpen(false);
-            }
-        };
-
-        document.addEventListener('pointerdown', onPointerDown);
-        document.addEventListener('keydown', onKeyDown);
-
-        return () => {
-            document.removeEventListener('pointerdown', onPointerDown);
-            document.removeEventListener('keydown', onKeyDown);
-        };
-    }, [open]);
-
-    const visit = (code) => {
         if (mode === 'admin') {
-            setOpen(false);
-            router.post('/mongla/admin/locale', { locale: code }, { preserveScroll: true });
+            router.post(
+                '/mongla/admin/locale',
+                { locale: upcoming },
+                {
+                    preserveScroll: true,
+                    onFinish: () => setPending(false),
+                },
+            );
 
             return;
         }
 
-        const url = new URL(window.location.href);
-        const nextPath = url.pathname.replace(
-            /^\/(en|my|zh)(?=\/|$)/,
-            `/${code}`,
-        );
-        const path = nextPath.startsWith(`/${code}`) ? nextPath : `/${code}`;
-
-        setOpen(false);
-        router.visit(`${path}${url.search}`);
+        const to = currentBarePath();
+        router.visit(`/locale/${upcoming}?to=${encodeURIComponent(to)}`, {
+            preserveScroll: true,
+            onFinish: () => setPending(false),
+        });
     };
 
-    const onNavy = tone === 'inverse';
-
     return (
-        <div ref={rootRef} className="relative">
-            <button
-                type="button"
-                className={cx(
-                    'inline-flex min-h-11 min-w-11 items-center gap-2 rounded-md px-3 text-sm font-medium',
-                    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
-                    onNavy
-                        ? 'text-white hover:bg-white/10'
-                        : 'text-text hover:bg-text/5',
-                )}
-                aria-label={t('common.language.label')}
-                aria-haspopup="listbox"
-                aria-expanded={open}
-                aria-controls={listId}
-                onClick={() => setOpen((current) => !current)}
-            >
-                {t(labelKey[locale] ?? labelKey.my)}
-            </button>
-
-            {open ? (
-                <ul
-                    id={listId}
-                    role="listbox"
-                    aria-label={t('common.language.label')}
-                    className="absolute end-0 z-50 mt-2 min-w-44 rounded-md border border-border bg-surface py-1 text-text shadow-sm"
-                >
-                    {locales.map((code) => (
-                        <li key={code} role="presentation">
-                            <button
-                                type="button"
-                                role="option"
-                                aria-selected={code === locale}
-                                className={cx(
-                                    'flex min-h-11 w-full items-center px-4 text-start text-sm',
-                                    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
-                                    code === locale
-                                        ? 'text-text'
-                                        : 'text-muted hover:bg-text/5 hover:text-text',
-                                )}
-                                onClick={() => visit(code)}
-                            >
-                                {t(labelKey[code] ?? code)}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            ) : null}
-        </div>
+        <button
+            type="button"
+            className={cx(
+                'inline-flex h-8 items-center justify-center rounded-[6px] border px-2.5 text-xs font-medium',
+                'transition-colors duration-200',
+                'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+                onNavy
+                    ? 'border-white/25 bg-white/10 text-white hover:bg-white/20'
+                    : 'border-border bg-surface text-text hover:bg-text/5',
+                pending && 'pointer-events-none opacity-70',
+            )}
+            aria-label={`${t('common.language.label')}: ${t(current.labelKey)}. ${t('common.language.next', { lang: t(upcomingMeta.labelKey) })}`}
+            title={`${t(current.labelKey)} → ${t(upcomingMeta.labelKey)}`}
+            disabled={pending}
+            onClick={cycle}
+        >
+            <span className="leading-none tracking-wide">{current.short}</span>
+        </button>
     );
 }

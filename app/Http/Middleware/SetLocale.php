@@ -12,25 +12,39 @@ class SetLocale
 {
     public function handle(Request $request, Closure $next): Response
     {
-        $locale = $request->route('locale');
+        $adminPrefix = trim((string) config('locales.admin_prefix', 'mongla'), '/');
 
-        if (! is_string($locale)) {
+        if ($request->is($adminPrefix, $adminPrefix.'/*')) {
             return $next($request);
         }
 
-        if (! in_array($locale, config('locales.supported'), true)) {
+        $supported = config('locales.supported', ['en', 'my', 'zh']);
+        $default = config('locales.default', 'my');
+        $routeLocale = $request->route('locale');
+
+        if (! is_string($routeLocale) || $routeLocale === '') {
+            $saved = $request->session()->get('locale')
+                ?? $request->cookie(config('locales.cookie'));
+
+            if (
+                $request->isMethod('GET')
+                && $request->path() === '/'
+                && is_string($saved)
+                && in_array($saved, $supported, true)
+                && $saved !== $default
+            ) {
+                return redirect('/'.$saved);
+            }
+
+            $locale = $default;
+        } elseif (! in_array($routeLocale, $supported, true)) {
             abort(404);
+        } else {
+            $locale = $routeLocale;
         }
 
         app()->setLocale($locale);
         URL::defaults(['locale' => $locale]);
-
-        if ($request->is('*/admin', '*/admin/*')) {
-            $request->session()->put('admin_locale', $locale);
-
-            return $next($request);
-        }
-
         $request->session()->put('locale', $locale);
 
         Cookie::queue(Cookie::make(

@@ -64,10 +64,13 @@ class HandleInertiaRequests extends Middleware
         $stripped = preg_replace('#^(en|my|zh)(/|$)#', '', $path) ?? '';
         $stripped = trim((string) $stripped, '/');
         $suffix = $stripped === '' ? '' : '/'.$stripped;
+        $default = config('locales.default', 'my');
         $alternates = [];
 
         foreach (config('locales.supported', ['en', 'my', 'zh']) as $locale) {
-            $alternates[$locale] = url('/'.$locale.$suffix);
+            $alternates[$locale] = $locale === $default
+                ? url($suffix === '' ? '/' : $suffix)
+                : url('/'.$locale.$suffix);
         }
 
         return $alternates;

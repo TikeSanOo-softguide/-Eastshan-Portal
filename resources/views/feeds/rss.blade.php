@@ -9,7 +9,7 @@
         @foreach ($news as $item)
             <item>
                 <title>{{ $item->title }}</title>
-                <link>{{ url('/'.$locale.'/news') }}</link>
+                <link>{{ \App\Support\LocaleUrl::url('/news', $locale) }}</link>
                 <guid isPermaLink="false">news-{{ $item->id }}-{{ $locale }}</guid>
                 <pubDate>{{ optional($item->published_at)->toRssString() }}</pubDate>
                 <description>{{ $item->excerpt }} @if($item->source_name) [Source: {{ $item->source_name }}] @endif</description>
@@ -21,8 +21,8 @@
         @foreach ($articles as $article)
             <item>
                 <title>{{ $article->title }}</title>
-                <link>{{ url('/'.$locale.'/articles/'.$article->category->value.'/'.$article->slug) }}</link>
-                <guid isPermaLink="true">{{ url('/'.$locale.'/articles/'.$article->category->value.'/'.$article->slug) }}</guid>
+                <link>{{ \App\Support\LocaleUrl::url('/articles/'.$article->category->value.'/'.$article->slug, $locale) }}</link>
+                <guid isPermaLink="true">{{ \App\Support\LocaleUrl::url('/articles/'.$article->category->value.'/'.$article->slug, $locale) }}</guid>
                 <pubDate>{{ optional($article->published_at)->toRssString() }}</pubDate>
                 <description>{{ \Illuminate\Support\Str::limit(strip_tags((string) $article->body), 200) }}</description>
                 @if ($article->author)

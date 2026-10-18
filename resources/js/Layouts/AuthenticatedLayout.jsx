@@ -3,12 +3,15 @@ import Dropdown from '@/Components/Dropdown';
 import LanguageSwitcher from '@/Components/public/LanguageSwitcher';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
+import { localizedHref } from '@/lib/navigation';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function AuthenticatedLayout({ header, children }) {
-    const user = usePage().props.auth.user;
+    const page = usePage();
+    const user = page.props.auth.user;
+    const locale = page.props.locale ?? 'my';
     const { t } = useTranslation();
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -21,14 +24,14 @@ export default function AuthenticatedLayout({ header, children }) {
                     <div className="flex h-16 justify-between">
                         <div className="flex">
                             <div className="flex shrink-0 items-center">
-                                <Link href={route('home')}>
+                                <Link href={localizedHref(locale, '/')}>
                                     <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
                                 </Link>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    href={route('dashboard')}
+                                    href={localizedHref(locale, '/dashboard')}
                                     active={route().current('dashboard')}
                                 >
                                     {t('nav.dashboard')}
@@ -66,12 +69,12 @@ export default function AuthenticatedLayout({ header, children }) {
 
                                     <Dropdown.Content>
                                         <Dropdown.Link
-                                            href={route('profile.edit')}
+                                            href={localizedHref(locale, '/profile')}
                                         >
                                             {t('nav.profile')}
                                         </Dropdown.Link>
                                         <Dropdown.Link
-                                            href={route('logout')}
+                                            href={localizedHref(locale, '/logout')}
                                             method="post"
                                             as="button"
                                         >
@@ -139,7 +142,7 @@ export default function AuthenticatedLayout({ header, children }) {
                 >
                     <div className="space-y-1 pb-3 pt-2">
                         <ResponsiveNavLink
-                            href={route('dashboard')}
+                            href={localizedHref(locale, '/dashboard')}
                             active={route().current('dashboard')}
                         >
                             {t('nav.dashboard')}
@@ -157,12 +160,12 @@ export default function AuthenticatedLayout({ header, children }) {
                         </div>
 
                         <div className="mt-3 space-y-1">
-                            <ResponsiveNavLink href={route('profile.edit')}>
+                            <ResponsiveNavLink href={localizedHref(locale, '/profile')}>
                                 {t('nav.profile')}
                             </ResponsiveNavLink>
                             <ResponsiveNavLink
                                 method="post"
-                                href={route('logout')}
+                                href={localizedHref(locale, '/logout')}
                                 as="button"
                             >
                                 {t('nav.logout')}

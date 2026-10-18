@@ -1,16 +1,18 @@
 import PrimaryButton from '@/Components/PrimaryButton';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { localizedHref } from '@/lib/navigation';
+import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 
 export default function VerifyEmail({ status }) {
     const { t } = useTranslation();
+    const locale = usePage().props.locale ?? 'my';
     const { post, processing } = useForm({});
 
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('verification.send'));
+        post(localizedHref(locale, '/email/verification-notification'));
     };
 
     return (
@@ -34,7 +36,7 @@ export default function VerifyEmail({ status }) {
                     </PrimaryButton>
 
                     <Link
-                        href={route('logout')}
+                        href={localizedHref(locale, '/logout')}
                         method="post"
                         as="button"
                         className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

@@ -15,8 +15,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ArticleController extends Controller
 {
-    public function index(Request $request, string $locale, ?string $category = null): Response
+    public function index(Request $request): Response
     {
+        $category = $request->route('category');
         $resolved = $this->resolveCategory($category) ?? ArticleCategory::Knowledge;
 
         if ($category !== null && $category !== '' && ! $this->resolveCategory($category)) {
@@ -51,8 +52,10 @@ class ArticleController extends Controller
         ));
     }
 
-    public function show(string $locale, string $category, string $slug): Response
+    public function show(Request $request): Response
     {
+        $category = $request->route('category');
+        $slug = $request->route('slug');
         $resolved = $this->resolveCategory($category);
 
         if (! $resolved) {

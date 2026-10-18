@@ -9,6 +9,14 @@
         "openMenu": "Open menu",
         "closeMenu": "Close menu",
         "tagline": "Sample public site for Eastshan services and notices",
+        "marquee": {
+            "label": "Site notices",
+            "news": "Latest public notices and daily news",
+            "institutions": "Find offices and regional institutions",
+            "services": "Education, health, power, and roads",
+            "heritage": "Cultural heritage of the region",
+            "contact": "Contact the sample civic desk"
+        },
         "search": "Search",
         "searchLabel": "Search this sample site",
         "searchSubmit": "Search",
@@ -50,6 +58,15 @@
             "ctaSecondary": "Read the latest news",
             "scroll": "Scroll"
         },
+        "aboutShan": {
+            "title": "About Shan State",
+            "p1": "Eastshan stands at a crossroads of hills, rivers, and shared memory. This portal gathers public information so residents and visitors can find institutions, services, and notices without hunting across scattered pages.",
+            "p2": "From township offices to schools and clinics, the region’s daily life depends on clear facts—opening hours, contacts, and updates that people can trust. Sample pages here show how that information can be presented with calm, readable structure.",
+            "p3": "Culture and heritage remain part of the same story: language, custom, and place. They deserve space beside infrastructure and administration, not as decoration but as context for how communities live and work together.",
+            "p4": "This statement is placeholder copy for layout review. It does not speak for a real office, a real official, or a real political claim. Replace it with approved regional text before launch.",
+            "signName": "Eastshan",
+            "signRole": "Public information portal"
+        },
         "featured": {
             "eyebrow": "Priorities",
             "title": "What you can find here",
@@ -80,8 +97,9 @@
             }
         },
         "stats": {
-            "eyebrow": "At a glance",
-            "note": "Sample numbers drawn from seeded demo data. They are not official statistics.",
+            "eyebrow": "Overview",
+            "title": "Regional Statistics",
+            "lead": "Explore an overview of the region’s communities and essential services.",
             "population": "Population",
             "townships": "Townships",
             "schools": "Schools",
@@ -90,7 +108,7 @@
         "news": {
             "eyebrow": "Updates",
             "title": "Latest news",
-            "lead": "Three recent sample items from the database.",
+            "lead": "Recent sample notices from the region.",
             "viewAll": "All news",
             "empty": "No published news items yet."
         },
@@ -110,6 +128,63 @@
             "page": "Page {{current}} of {{total}}",
             "viewAll": "View leadership",
             "empty": "No leaders to show yet."
+        },
+        "ourLeaders": {
+            "eyebrow": "Leadership",
+            "title": "Our Leaders",
+            "lead": "Sample profiles for layout review. Names and roles are fictional placeholders.",
+            "prev": "Previous leader",
+            "next": "Next leader",
+            "viewAll": "View all leadership",
+            "items": [
+                {
+                    "name": "U Aung Min",
+                    "role": "Chief Administrator, Eastshan Desk",
+                    "quote": "Clear public information helps residents act with confidence. This portal is a sample of how that service can look."
+                },
+                {
+                    "name": "Daw Hnin Yu",
+                    "role": "Director of Civic Services",
+                    "quote": "We designed these pages so offices, schools, and clinics can share facts in one calm, readable place."
+                },
+                {
+                    "name": "Ko Zaw Lin",
+                    "role": "Head of Regional Planning",
+                    "quote": "Planning works best when people can find opening hours, contacts, and updates without hunting across sites."
+                },
+                {
+                    "name": "Ma Thiri Oo",
+                    "role": "Communications Lead",
+                    "quote": "Every notice here is sample copy. Replace it with approved regional language before any public launch."
+                },
+                {
+                    "name": "U Sai Htun",
+                    "role": "Infrastructure Coordinator",
+                    "quote": "Roads, power, and clinics belong beside culture and heritage—not as decoration, but as daily life."
+                },
+                {
+                    "name": "Ko Myo Than",
+                    "role": "Community Liaison",
+                    "quote": "This section mirrors a partner-testimonial layout: one portrait, one voice, and room to scroll to the next."
+                }
+            ]
+        },
+        "connected": {
+            "eyebrow": "Stay connected",
+            "title": "Connected to SR4",
+            "lead": "Follow our official accounts for the latest news, videos and announcements.",
+            "items": {
+                "facebook": "Facebook",
+                "youtube": "YouTube",
+                "tiktok": "TikTok",
+                "viber": "Viber",
+                "telegram": "Telegram",
+                "whatsapp": "WhatsApp",
+                "douyin": "Douyin 抖音",
+                "kuaishou": "Kuaishou 快手",
+                "wechat": "WeChat 微信",
+                "mongla": "Mongla SR4 News Agency Page"
+            }
         },
         "styleGuide": {
             "badge": "Style guide · local only",
@@ -159,6 +234,7 @@
         "skipToContent": "Skip to content",
         "language": {
             "label": "Language",
+            "next": "Switch to {{lang}}",
             "en": "English",
             "my": "မြန်မာ",
             "zh": "中文"
@@ -494,19 +570,48 @@
     },
     "news": {
         "metaTitle": "Daily News",
-        "metaDescription": "Short sample news digests with source links. Full third-party articles are never republished here.",
+        "metaDescription": "Sample daily news cards for the Eastshan portal preview.",
         "rssTitle": "Eastshan Portal feed",
-        "eyebrow": "Digest",
+        "eyebrow": "Updates",
         "title": "Daily News",
-        "lead": "Short summaries only, with a clear Source link. These are sample placeholders, not republished articles.",
-        "categoryLabel": "Category",
-        "allCategories": "All categories",
-        "fromLabel": "From",
-        "toLabel": "To",
-        "apply": "Apply",
-        "source": "Source",
-        "emptyTitle": "No news items",
-        "emptyBody": "Try another category or date range."
+        "items": [
+            {
+                "title": "Sample: Power maintenance",
+                "excerpt": "Scheduled maintenance will briefly affect evening supply in selected townships. Keep devices charged where possible."
+            },
+            {
+                "title": "Sample: Bridge repair update",
+                "excerpt": "Repair crews continue work on the river crossing. Expect short delays during peak travel hours this week."
+            },
+            {
+                "title": "Sample: School term opens",
+                "excerpt": "The new term begins next Monday. Families can review opening hours and contact details on the education pages."
+            },
+            {
+                "title": "Sample: Clinic hours change",
+                "excerpt": "Two township clinics adjust afternoon hours. Check the notice board or this digest before you travel."
+            },
+            {
+                "title": "Sample: Market day notice",
+                "excerpt": "Weekend market stalls relocate for road works. Traders should arrive early to confirm their assigned rows."
+            },
+            {
+                "title": "Sample: Water service advisory",
+                "excerpt": "Low pressure may occur overnight while valves are inspected. Normal service is expected by morning."
+            },
+            {
+                "title": "Sample: Community meeting",
+                "excerpt": "Ward offices host an open meeting on Saturday morning to share updates on local services and transport."
+            },
+            {
+                "title": "Sample: Road safety reminder",
+                "excerpt": "Please slow down near school gates and construction zones. Temporary signs mark the affected stretches."
+            },
+            {
+                "title": "Sample: Heritage walk weekend",
+                "excerpt": "A short guided walk highlights local landmarks. Register at the cultural desk if your group plans to join."
+            }
+        ]
     },
     "articles": {
         "metaTitle": "Articles · {{category}}",

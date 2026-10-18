@@ -11,7 +11,7 @@ export default function Breadcrumb({ items = [] }) {
     }
 
     return (
-        <nav aria-label={t('common.breadcrumb')} className="mb-8">
+        <nav aria-label={t('common.breadcrumb')} className="mb-4">
             <ol className="flex flex-wrap items-center gap-1 text-sm text-muted">
                 {items.map((item, index) => {
                     const last = index === items.length - 1;
@@ -27,7 +27,7 @@ export default function Breadcrumb({ items = [] }) {
                             {last || !item.href ? (
                                 <span
                                     className={cx(
-                                        'min-h-11 inline-flex items-center',
+                                        'inline-flex items-center py-1',
                                         last && 'text-text',
                                     )}
                                     aria-current={last ? 'page' : undefined}
@@ -37,7 +37,7 @@ export default function Breadcrumb({ items = [] }) {
                             ) : (
                                 <Link
                                     href={item.href}
-                                    className="inline-flex min-h-11 items-center hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                                    className="inline-flex items-center py-1 hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                                 >
                                     {item.label}
                                 </Link>
